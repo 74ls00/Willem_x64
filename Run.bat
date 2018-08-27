@@ -17,15 +17,42 @@ rem set softex=%~d0%~p0EpromM51_98D12C3.exe
 set drvinst=TVicPortInstall41.exe
 
 cls
-if not exist "T:\Temp\2" EQL %xOS%="x64" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
+
+rem set xOS="x86"
+
+@echo %xOS%
+
+if %xOS% NEQ "x64" goto run86
+if %xOS% EQU "x64" goto run64
+@echo end
+goto endbat
+
+:run86
+echo mode 86
+
+start /d  "%wpath%" %soft98%
+
+
+goto endbat
+
+:run64
+
+echo 64
+
+if not exist "T:\Temp\4" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
+
+rem EQL %xOS%="x64"
+
+
 pause
 
 
 
+goto endbat
 
 
 
-
+:endbat
 
 
 
