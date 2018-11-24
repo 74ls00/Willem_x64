@@ -61,8 +61,8 @@ if exist %SystemRoot%\SysWOW64\drivers\TVicPort64.sys (echo %SystemRoot%\SysWOW6
 title Режим 64 : Установка драйвера
 if not exist "%DrvPaths%\cpd64.exe" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
 
-title Запуск Willem EPROM 
-start /d  "%wpath%" %soft98%
+rem title Запуск Willem EPROM 
+rem start /d  "%wpath%" %soft98%
 
 goto endbat
 
