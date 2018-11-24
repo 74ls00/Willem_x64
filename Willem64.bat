@@ -14,15 +14,12 @@ set GenteePaths="HKLM\SOFTWARE\Wow6432Node\Gentee\Paths"
 set "DrvPathsName=TVicPortDemo"
 set "DrvPaths=                   "
 
-
-
-cls
-
-
 rem set "xOS=x86"
 rem set "xOS=x64"
 
-@echo xOS=%xOS%
+cls
+
+@echo Разрядность системы=%xOS%
 
 if %xOS% EQU x64 goto :run64
 if %xOS% NEQ x64 goto :run86
@@ -62,18 +59,10 @@ if exist %SystemRoot%\SysWOW64\drivers\TVicPort64.sys (echo %SystemRoot%\SysWOW6
 
 if not exist "%DrvPaths%\cpd64.exe" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
 
-
-
-
-
-
-
 goto endbat
-
-
 
 :endbat
 echo.
 echo Выход
-Pause
+rem Pause
 exit
