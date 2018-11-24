@@ -31,14 +31,12 @@ if %xOS% NEQ x64 goto :run86
 goto :endbat
 
 :run86
-pause
-echo mode 86
+echo Режим 86
 start /d  "%wpath%" %soft98%
 goto :endbat
 
 :run64
-
-echo mode 64
+echo Режим 64
 
 rem < чтение пути из реестра
 for /f "tokens=2*" %%A in ('REG QUERY %GenteePaths% /v %DrvPathsName%') DO (
@@ -50,6 +48,7 @@ for /f "tokens=2*" %%A in ('REG QUERY %GenteePaths% /v %DrvPathsName%') DO (
 :break1
 rem end чтение пути из реестра >
 
+echo.
 rem проверка наличия файлов
 if exist %DrvPaths%\cpd64.exe (Call echo %DrvPaths%\cpd64.exe               OK) else (Echo %DrvPaths%\cpd64.exe               не найден)
 if exist %DrvPaths%\Docs\LICENSE.TXT (echo %DrvPaths%\Docs\LICENSE.TXT        OK) else (Echo %DrvPaths%\Docs\LICENSE.TXT        не найден)
@@ -74,7 +73,7 @@ goto endbat
 
 
 :endbat
-
-echo exit
+echo.
+echo Выход
 Pause
 exit
