@@ -1,4 +1,5 @@
 chcp 866
+title Запуск Willem EPROM
 echo off
 
 Set "xOS=x64" & If "%PROCESSOR_ARCHITECTURE%"=="x86" (
@@ -28,12 +29,12 @@ if %xOS% NEQ x64 goto :run86
 goto :endbat
 
 :run86
-echo Режим 86
+title Режим 86
 start /d  "%wpath%" %soft98%
 goto :endbat
 
 :run64
-echo Режим 64
+title Режим 64
 
 rem < чтение пути из реестра
 for /f "tokens=2*" %%A in ('REG QUERY %GenteePaths% /v %DrvPathsName%') DO (
@@ -57,11 +58,16 @@ if exist %SystemRoot%\system\TVicPort.dll (echo %SystemRoot%\system\TVicPort.dll
 if exist %SystemRoot%\System32\drivers\TVicPort64.sys (echo %SystemRoot%\System32\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\System32\drivers\TVicPort64.sys  не найден)
 if exist %SystemRoot%\SysWOW64\drivers\TVicPort64.sys (echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  не найден)
 
+title Режим 64 : Установка драйвера
 if not exist "%DrvPaths%\cpd64.exe" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
+
+title Запуск Willem EPROM 
+start /d  "%wpath%" %soft98%
 
 goto endbat
 
 :endbat
+title Завершено
 echo.
 echo Выход
 rem Pause
