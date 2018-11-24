@@ -9,11 +9,9 @@ Set xOS=x64& If "%PROCESSOR_ARCHITECTURE%"=="x86" (
 cls
 Echo OS - %xOS%
 
-set wpath=%~d0%~p0
-set dpath=%wpath%TVicPort
+set wpath=%~d0%~p0bin
+set dpath=%~d0%~p0bin
 set soft98=EpromM51_98D12C3.exe
-
-rem set softex=%~d0%~p0EpromM51_98D12C3.exe
 set drvinst=TVicPortInstall41.exe
 
 cls

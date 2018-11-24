@@ -1,5 +1,17 @@
 git.txt
 
+share
+~Run.bat
+/kill.bat
+
+
+
+
+
+
+
+
+
 backup
 
 TVicPort
@@ -53,3 +65,4 @@ old/
 *.mpd
 *.pro
 *.job
+
