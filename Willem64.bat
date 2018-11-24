@@ -1,5 +1,5 @@
+chcp 866
 echo off
-chcp 65001
 
 Set "xOS=x64" & If "%PROCESSOR_ARCHITECTURE%"=="x86" (
  If Not Defined PROCESSOR_ARCHITEW6432 Set "xOS=x86"
@@ -12,7 +12,7 @@ set drvinst=TVicPortInstall41.exe
 
 set GenteePaths="HKLM\SOFTWARE\Wow6432Node\Gentee\Paths"
 set "DrvPathsName=TVicPortDemo"
-set "DrvPaths="
+set "DrvPaths=                   "
 
 
 
@@ -40,7 +40,7 @@ goto :endbat
 
 echo mode 64
 
-rem < —á—Ç–µ–Ω–∏–µ –ø—É—Ç–∏ –∏–∑ —Ä–µ–µ—Å—Ç—Ä–∞
+rem < Á‚•≠®• Ø„‚® ®ß ‡••·‚‡†
 for /f "tokens=2*" %%A in ('REG QUERY %GenteePaths% /v %DrvPathsName%') DO (
   for %%F in (%%B) do (
     set DrvPaths=%%F
@@ -48,18 +48,18 @@ for /f "tokens=2*" %%A in ('REG QUERY %GenteePaths% /v %DrvPathsName%') DO (
   )
 )
 :break1
-rem end —á—Ç–µ–Ω–∏–µ –ø—É—Ç–∏ –∏–∑ —Ä–µ–µ—Å—Ç—Ä–∞ >
+rem end Á‚•≠®• Ø„‚® ®ß ‡••·‚‡† >
 
-rem –ø—Ä–æ–≤–µ—Ä–∫–∞ –Ω–∞–ª–∏—á–∏—è —Ñ–∞–π–ª–æ–≤
-if exist %DrvPaths%\cpd64.exe (Call echo %DrvPaths%\cpd64.exe               OK) else (Echo %DrvPaths%\cpd64.exe               –Ω–µ –Ω–∞–π–¥–µ–Ω)
-if exist %DrvPaths%\Docs\LICENSE.TXT (echo %DrvPaths%\Docs\LICENSE.TXT        OK) else (Echo %DrvPaths%\Docs\LICENSE.TXT        –Ω–µ –Ω–∞–π–¥–µ–Ω)
-if exist %DrvPaths%\Examples (echo %DrvPaths%\Examples                –Ω–∞–π–¥–µ–Ω–æ) else (Echo %DrvPaths%\Examples                –Ω–µ —É—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–æ)
-if exist %DrvPaths%\uninstall.ini (echo %DrvPaths%\uninstall.ini           OK) else (Echo %DrvPaths%\uninstall.ini           –Ω–µ –Ω–∞–π–¥–µ–Ω)
-if exist %DrvPaths%\uninstall.exe (echo %DrvPaths%\uninstall.exe           OK) else (Echo %DrvPaths%\uninstall.exe           –Ω–µ –Ω–∞–π–¥–µ–Ω)
+rem Ø‡Æ¢•‡™† ≠†´®Á®Ô ‰†©´Æ¢
+if exist %DrvPaths%\cpd64.exe (Call echo %DrvPaths%\cpd64.exe               OK) else (Echo %DrvPaths%\cpd64.exe               ≠• ≠†©§•≠)
+if exist %DrvPaths%\Docs\LICENSE.TXT (echo %DrvPaths%\Docs\LICENSE.TXT        OK) else (Echo %DrvPaths%\Docs\LICENSE.TXT        ≠• ≠†©§•≠)
+if exist %DrvPaths%\Examples (echo %DrvPaths%\Examples                ≠†©§•≠Æ) else (Echo %DrvPaths%\Examples                ≠• „·‚†≠Æ¢´•≠Æ)
+if exist %DrvPaths%\uninstall.ini (echo %DrvPaths%\uninstall.ini           OK) else (Echo %DrvPaths%\uninstall.ini           ≠• ≠†©§•≠)
+if exist %DrvPaths%\uninstall.exe (echo %DrvPaths%\uninstall.exe           OK) else (Echo %DrvPaths%\uninstall.exe           ≠• ≠†©§•≠)
 
-if exist %SystemRoot%\system\TVicPort.dll (echo %SystemRoot%\system\TVicPort.dll              OK) else (Echo %SystemRoot%\system\TVicPort.dll              –Ω–µ –Ω–∞–π–¥–µ–Ω)
-if exist %SystemRoot%\System32\drivers\TVicPort64.sys (echo %SystemRoot%\System32\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\System32\drivers\TVicPort64.sys  –Ω–µ –Ω–∞–π–¥–µ–Ω)
-if exist %SystemRoot%\SysWOW64\drivers\TVicPort64.sys (echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  –Ω–µ –Ω–∞–π–¥–µ–Ω)
+if exist %SystemRoot%\system\TVicPort.dll (echo %SystemRoot%\system\TVicPort.dll              OK) else (Echo %SystemRoot%\system\TVicPort.dll              ≠• ≠†©§•≠)
+if exist %SystemRoot%\System32\drivers\TVicPort64.sys (echo %SystemRoot%\System32\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\System32\drivers\TVicPort64.sys  ≠• ≠†©§•≠)
+if exist %SystemRoot%\SysWOW64\drivers\TVicPort64.sys (echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  OK) else (Echo %SystemRoot%\SysWOW64\drivers\TVicPort64.sys  ≠• ≠†©§•≠)
 
 if not exist "%DrvPaths%\cpd64.exe" (start "TVicPort Install ..." /wait  /d "%dpath%" %drvinst%) else (start /d  "%wpath%" %soft98%)
 
